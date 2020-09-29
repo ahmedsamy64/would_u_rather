@@ -1,26 +1,25 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 
-class User extends PureComponent {
+class User extends Component {
   render() {
-    const { user } = this.props;
+
+    const { CurrentUser } = this.props;
     return (
+
+
       <Fragment>
-        <img src={user.avatarURL} className='avatar' alt={`Avatar of ${user.name}`}/>
-        <span>{user.name}</span>
+        <img src={CurrentUser.avatarURL} className='avatar' alt={`Avatar of ${CurrentUser.name}`} />
+
+        <span>{CurrentUser.name}</span>
       </Fragment>
     );
   }
 }
 
-User.propTypes = {
-  user: PropTypes.object.isRequired
-};
-
-function mapStateToProps ({ users }, { id }) {
+function mapStateToProps({ users }, { id }) {
   return {
-    user : users[id]
+    CurrentUser: users[id]
   }
 }
 

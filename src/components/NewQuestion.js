@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import {
     Button,
-    Card,
-    CardBody,
-    CardTitle,
     Col,
     Form,
     FormGroup,
@@ -52,9 +49,10 @@ class NewQuestion extends Component {
         return (
             <Row>
               <Col sm="12" md={{ size: 6, offset: 3 }}>
-                <Card>
-                  <CardBody>
-                    <CardTitle>Would You Rather</CardTitle>
+                <div>
+                  <div>
+                    <h3>Would You Rather</h3>
+                    <p>Write the two options below</p>
                     <Form onSubmit={this.handleSubmit}>
                       <FormGroup>
                         <Label for="optionOne">Option One</Label>
@@ -74,8 +72,8 @@ class NewQuestion extends Component {
                       </FormGroup>
                       <Button disabled={optionOne === '' || optionTwo === ''}>Submit</Button>
                     </Form>
-                  </CardBody>
-                </Card>
+                  </div>
+                </div>
               </Col>
             </Row>
           );

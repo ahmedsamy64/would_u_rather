@@ -1,7 +1,7 @@
 import { RECEIVE_USERS, USER_ANSWER_QUESTION, ADD_USER_QUESTION } from '../actions/users'
 
-export default function users (state= {}, action){
-  switch(action.type){
+export default function users(state = {}, action) {
+  switch (action.type) {
     case USER_ANSWER_QUESTION:
       return {
         ...state,
@@ -18,7 +18,7 @@ export default function users (state= {}, action){
         ...state,
         ...action.users
       };
-    case ADD_USER_QUESTION :
+    case ADD_USER_QUESTION:
       return {
         ...state,
         [action.authedUser]: {

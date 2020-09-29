@@ -1,25 +1,24 @@
-import React, { Component, Fragment } from 'react'
+import React,  { Fragment } from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import { BrowserRouter as Router } from 'react-router-dom';
-
 import { handleInitialData }  from '../actions/shared'
 import Routes from './Routes'
+import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from './NavBar';
 
-class App extends Component {
+
+class App extends React.Component {
   componentDidMount(){
     this.props.handleInitialData()
   }
   render() {
-    const { notLoggedIn } = this.props;
+    const { IsntLoggedIn } = this.props;
 
     return (
       <Router>
         <Fragment>
-          <div className="main-container">
+          <div>
             <NavBar/>
-            <Routes notLoggedIn={notLoggedIn}/>
+            <Routes notLoggedIn={IsntLoggedIn}/>
           </div>
         </Fragment>
       </Router>
@@ -27,14 +26,10 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  handleInitialData : PropTypes.func.isRequired,
-  notLoggedIn: PropTypes.bool.isRequired
-};
 
 function mapStateToProps ({ authedUser }) {
   return {
-    notLoggedIn: authedUser === null
+    IsntLoggedIn: authedUser === null
   }
 }
 

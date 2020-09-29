@@ -4,10 +4,10 @@ import { Redirect } from 'react-router-dom'
 import { unsetAuthedUser } from '../actions/authedUser'
 
 class Logout extends Component {
-  componentWillMount () {
+  componentWillMount() {
     this.props.dispatch(unsetAuthedUser())
   }
-  render () {
+  render() {
     return <Redirect to='/' />
   }
 }

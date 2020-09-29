@@ -7,13 +7,13 @@ import { setAuthedUser } from '../actions/authedUser'
 class Login extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {userId : ''};
+    this.state = { userId: '' };
     this.handleChangeUser = this.handleChangeUser.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChangeUser(event) {
-    this.setState({userId: event.target.value});
+    this.setState({ userId: event.target.value });
   }
 
   handleSubmit(event) {
@@ -36,19 +36,19 @@ class Login extends PureComponent {
           <Form onSubmit={this.handleSubmit}>
             <FormGroup>
               <Label for="userSelect">Select User</Label>
-              <Input 
-                  id="userSelect"
-                  type="select"
-                  name="select"
-                  value={userId}
-                  onChange={this.handleChangeUser}
+              <Input
+                id="userSelect"
+                type="select"
+                name="select"
+                value={userId}
+                onChange={this.handleChangeUser}
               >
                 <option value="" disabled>Please select</option>
                 {
                   Object.keys(users).map(user =>
-                  <option key={user} value={user}>
-                    {users[user].name}
-                  </option>)
+                    <option key={user} value={user}>
+                      {users[user].name}
+                    </option>)
                 }
               </Input>
             </FormGroup>
@@ -65,7 +65,7 @@ Login.propTypes = {
   authenticate: PropTypes.func.isRequired
 };
 
-function mapStateToProps ({ users }) {
+function mapStateToProps({ users }) {
   return {
     users
   }

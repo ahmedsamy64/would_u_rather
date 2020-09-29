@@ -1,8 +1,8 @@
 const logger = (store) => (next) => (action) => {
   console.group(action.type);
-  console.log('The action: ', action);
+  console.log('action is: ', action);
   const returnValue = next(action);
-  console.log('The new state: ', store.getState());
+  console.log('new state is: ', store.getState());
   console.groupEnd();
   return returnValue
 };

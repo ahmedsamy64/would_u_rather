@@ -1,33 +1,32 @@
 import React, { Fragment } from "react";
-import PropTypes from "prop-types";
 import { Switch, Route } from "react-router-dom";
-
-import Dashboard from './Dashboard'
+import Error from "./Error"
+import UserDashboard from './UserDashboard'
 import LeaderBoard from './LeaderBoard'
+import QuestionDetails from "./QuestionDetails"
+import Logout from './Logout'
 import Login from "./Login";
 import NewQuestion from "./NewQuestion";
-import QuestionDetails from "./QuestionDetails"
-import NotFound from "./NotFound"
-import Logout from './Logout'
+
+
+
 
 function Routes(props) {
   return <div className="container">
     <Switch>
       {
-        props.notLoggedIn ? <Route path='/' exact component={Login}/> :
+        props.notLoggedIn ? <Route path='/' exact component={Login} /> :
           <Fragment>
-            <Route path='/' exact component={Dashboard} />
+            <Route path='/' exact component={UserDashboard} />
             <Route path='/leaderboard' exact component={LeaderBoard} />
-            <Route path='/add' component={NewQuestion}/>
+            <Route path='/add' component={NewQuestion} />
             <Route path="/questions/:id" component={QuestionDetails} />
             <Route exact path='/logout' component={Logout} />
           </Fragment>
       }
-      <Route component={NotFound} />
+      <Route component={Error} />
     </Switch>
   </div>;
 }
-
-Routes.propTypes = {notLoggedIn: PropTypes.any};
 
 export default Routes;
